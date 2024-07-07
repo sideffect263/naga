@@ -28,6 +28,16 @@ const ProjectsGrid = styled.div`
     color: #edf6f9;
     text-decoration: none;
   }
+
+    @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    }
+
+    @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    }
 `;
 
 const ProjectCard = styled.div`

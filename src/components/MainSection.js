@@ -85,10 +85,11 @@ const GitHubLink = styled.a`
 
 const MainSection = () => (
   <MainWrapper>
-    <Hero>
-      <h1>Challenge us with your app concept.</h1>
-      <p>We'll deliver a solution that drives results</p>
-    </Hero>
+ <Hero>
+  <h1>Got a cool app idea?</h1>
+  <p>Let's build something awesome together.</p>
+</Hero>
+
     <ProjectsGrid>
       {projects.map((project, index) => (
         <a href={project.url} key={index}>

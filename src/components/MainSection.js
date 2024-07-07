@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaGithub } from 'react-icons/fa';
 import projects from '../data/projects';
 
 const MainWrapper = styled.main`
@@ -29,15 +30,15 @@ const ProjectsGrid = styled.div`
     text-decoration: none;
   }
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
-    }
+  }
 
-    @media (max-width: 480px) {
+  @media (max-width: 480px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 30px;
-    }
+  }
 `;
 
 const ProjectCard = styled.div`
@@ -49,8 +50,6 @@ const ProjectCard = styled.div`
     transform: scale(1.05);
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
   }
-
-  
 `;
 
 const ProjectImage = styled.img`
@@ -59,10 +58,10 @@ const ProjectImage = styled.img`
   border-radius: 10px;
   margin-bottom: 15px;
   max-height: 300px;
-    object-fit: cover;
-    position: relative;
-    image-rendering: auto;
-    background-position: center;
+  object-fit: cover;
+  position: relative;
+  image-rendering: auto;
+  background-position: center;
 `;
 
 const ProjectName = styled.h3`
@@ -74,6 +73,16 @@ const ProjectDescription = styled.p`
   font-size: 16px;
 `;
 
+const GitHubLink = styled.a`
+  color: #fff;
+  font-size: 24px;
+  display: inline-block;
+  margin-top: 15px;
+  &:hover {
+    color: #9b9b9b;
+  }
+`;
+
 const MainSection = () => (
   <MainWrapper>
     <Hero>
@@ -82,12 +91,17 @@ const MainSection = () => (
     </Hero>
     <ProjectsGrid>
       {projects.map((project, index) => (
-        <a href={project.url}>
-        <ProjectCard key={index} >
-          <ProjectImage src={project.image} alt={project.name} />
-          <ProjectName>{project.name}</ProjectName>
-          <ProjectDescription>{project.description}</ProjectDescription>
-        </ProjectCard>
+        <a href={project.url} key={index}>
+          <ProjectCard>
+            <ProjectImage src={project.image} alt={project.name} />
+            <ProjectName>{project.name}</ProjectName>
+            <ProjectDescription>{project.description}</ProjectDescription>
+            {project.gitHubUrl && (
+              <GitHubLink href={project.gitHubUrl} target="_blank" rel="noopener noreferrer">
+                <FaGithub />
+              </GitHubLink>
+            )}
+          </ProjectCard>
         </a>
       ))}
     </ProjectsGrid>

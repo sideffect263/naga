@@ -21,6 +21,9 @@ const HeaderWrapper = styled.header`
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
+    font-family: 'Raleway', sans-serif; /* Change the font family */;
+    letter-spacing: 1px;
+
 
   &:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);

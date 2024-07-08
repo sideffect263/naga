@@ -8,11 +8,39 @@ const MainWrapper = styled.main`
   background: linear-gradient(90deg, rgba(0,36,61,1) 0%, rgba(9,121,112,1) 100%);
   color: #fff;
   text-align: center;
+  font-family: 'Raleway', sans-serif; /* Change the font family */
 
-  #colorText {
-    color: #097970;
-    font-color: #097970;  
-  }
+
+
+    #colorText1 {
+          background: linear-gradient(to right, #99d98c, #76c893, #76c893);
+          -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.1em; /* Adjust the size as needed */
+      
+    
+}
+#colorText2 {
+  background: linear-gradient(to right, #76c893, #52b69a, #34a0a4);
+  -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.1em; /* Adjust the size as needed */
+    
+}
+
+#colorText3 {
+  background: linear-gradient(to right, #34a0a4, #34a0a4, #168aad);
+  -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.1em; /* Adjust the size as needed */
+}
+  
+
+
+    .shadow-text {
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
 `;
 
 const Hero = styled.div`
@@ -91,8 +119,8 @@ const GitHubLink = styled.a`
 const MainSection = () => (
   <MainWrapper>
  <Hero>
-  <h1>Got a cool idea?</h1>
-  <p>Let's build something awesome together.</p>
+ <h1>Got a cool <span id='colorText1' class="shadow-text">a</span><span id='colorText2' class="shadow-text">p</span><span id='colorText3' class="shadow-text">p</span> idea?</h1>
+ <p>Let's build something awesome together.</p>
 </Hero>
 
     <ProjectsGrid>

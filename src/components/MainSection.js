@@ -8,6 +8,11 @@ const MainWrapper = styled.main`
   background: linear-gradient(90deg, rgba(0,36,61,1) 0%, rgba(9,121,112,1) 100%);
   color: #fff;
   text-align: center;
+
+  #colorText {
+    color: #097970;
+    font-color: #097970;  
+  }
 `;
 
 const Hero = styled.div`
@@ -86,7 +91,7 @@ const GitHubLink = styled.a`
 const MainSection = () => (
   <MainWrapper>
  <Hero>
-  <h1>Got a cool app idea?</h1>
+  <h1>Got a cool <span id='colorText'>app</span> idea?</h1>
   <p>Let's build something awesome together.</p>
 </Hero>
 

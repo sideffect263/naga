@@ -91,7 +91,7 @@ const GitHubLink = styled.a`
 const MainSection = () => (
   <MainWrapper>
  <Hero>
-  <h1>Got a cool <span id='colorText'>app</span> idea?</h1>
+  <h1>Got a cool idea?</h1>
   <p>Let's build something awesome together.</p>
 </Hero>
 

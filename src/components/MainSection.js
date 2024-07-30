@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaDiscord } from 'react-icons/fa';
 import projects from '../data/projects';
+
+
 
 const MainWrapper = styled.main`
   padding: 50px;
@@ -103,18 +105,32 @@ const ProjectName = styled.h3`
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 const GitHubLink = styled.a`
   color: #fff;
-  font-size: 24px;
+  font-size: 32px;
   display: inline-block;
   margin-top: 15px;
   &:hover {
     color: #9b9b9b;
   }
 `;
+
+const DiscordLink = styled.a`
+  color: #e9ecfd;
+  width: 40px;
+  background: #7289da;
+  border-radius: 100%;
+  font-size: 32px;
+  display: inline-block;
+  margin-top: 15px;
+  &:hover {
+    color: #9b9b9b;
+  }
+`;
+
 
 const MainSection = () => (
   <MainWrapper>
@@ -130,11 +146,18 @@ const MainSection = () => (
             <ProjectImage src={project.image} alt={project.name} />
             <ProjectName>{project.name}</ProjectName>
             <ProjectDescription>{project.description}</ProjectDescription>
-            {project.gitHubUrl && (
+            {project.gitHubUrl && !project.discordUrl && (
               <GitHubLink href={project.gitHubUrl} target="_blank" rel="noopener noreferrer">
                 <FaGithub />
               </GitHubLink>
             )}
+
+            {project.discordUrl && (
+              <DiscordLink href={project.discordUrl} target="_blank" rel="noopener noreferrer">
+                <FaDiscord />
+              </DiscordLink>
+            )}
+
           </ProjectCard>
         </a>
       ))}

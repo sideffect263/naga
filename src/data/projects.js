@@ -36,8 +36,9 @@ const projects = [
       name: 'Stellar Spectacle',
       description: 'A visual demonstration of complex space phenomena, providing an interactive and educational experience.',
       image: space_img,
-      url: 'https://stellar-spacetacle.onrender.com/',
-      gitHubUrl: 'https://github.com/sideffect263/stellar-spectacle'
+      url: 'https://skyone.ofektechnology.com/',
+      gitHubUrl: 'https://github.com/sideffect263/stellar-spectacle',
+      discordUrl: 'https://discord.gg/AM9V3m7U',
     },
     {
       name: 'Capture The Flag Zone',

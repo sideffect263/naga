@@ -74,6 +74,7 @@ const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
+  min-height: 200px; /* Ensure grid has height even when empty */
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -91,10 +92,22 @@ const ProjectCard = styled.div`
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: var(--transition);
+  transition: var(--transition), opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
   height: 100%;
   display: flex;
   flex-direction: column;
+  animation: fadeIn 0.5s ease-in-out;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   
   &:hover {
     transform: translateY(-10px);
@@ -223,6 +236,7 @@ const FilterButton = styled.button`
 const ProjectsSection = () => {
   const [activeProjects, setActiveProjects] = useState(projects);
   const [filter, setFilter] = useState('all');
+  const [isAnimating, setIsAnimating] = useState(false);
   
   // Randomize projects on initial load
   useEffect(() => {
@@ -231,20 +245,31 @@ const ProjectsSection = () => {
   }, []);
   
   const handleFilterChange = (newFilter) => {
+    if (filter === newFilter) return;
+    
+    setIsAnimating(true);
     setFilter(newFilter);
     
-    if (newFilter === 'all') {
-      // Randomize the order of all projects
-      const shuffledProjects = [...projects].sort(() => Math.random() - 0.5);
-      setActiveProjects(shuffledProjects);
-    } else {
-      // For demonstration purposes, we'll filter based on project descriptions
-      // In a real app, you might want to add tags to your projects
-      const filtered = projects.filter(project => 
-        project.description.toLowerCase().includes(newFilter.toLowerCase())
-      );
-      setActiveProjects(filtered);
-    }
+    // Wait for fade out animation
+    setTimeout(() => {
+      if (newFilter === 'all') {
+        // Randomize the order of all projects
+        const shuffledProjects = [...projects].sort(() => Math.random() - 0.5);
+        setActiveProjects(shuffledProjects);
+      } else {
+        // For demonstration purposes, we'll filter based on project descriptions
+        // In a real app, you might want to add tags to your projects
+        const filtered = projects.filter(project => 
+          project.description.toLowerCase().includes(newFilter.toLowerCase())
+        );
+        setActiveProjects(filtered);
+      }
+      
+      // Reset animation state after a short delay
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 100);
+    }, 300);
   };
 
   return (
@@ -282,9 +307,11 @@ const ProjectsSection = () => {
           </FilterButton>
         </FilterContainer>
         
-        <ProjectsGrid>
+        <ProjectsGrid style={{ opacity: isAnimating ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}>
           {activeProjects.map((project, index) => (
-            <ProjectCard key={index}>
+            <ProjectCard key={`${project.name}-${index}`} style={{ 
+              animationDelay: `${index * 0.1}s`,
+            }}>
               <ProjectImage>
                 <img src={project.image} alt={project.name} />
               </ProjectImage>

@@ -18,7 +18,7 @@ import autodata_img from './images/autodata_img.png';
 const projects = [
   {
     name: 'Mood-Based UI',
-    description: 'A dynamic website that adapts its user interface based on the user\'s mood, determined by analyzing mouse data usage patterns and applying machine learning models.',
+    description: 'A dynamic site that adapts its user interface based on the user\'s mood, determined by analyzing mouse data usage patterns and applying machine learning models.',
     image: dynamic_ui_img,
     url: 'https://mood-based-ui.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/mood-based-ui',
@@ -32,7 +32,7 @@ const projects = [
   },
   {
     name: 'Ofek Lift Order System',
-    description: 'A comprehensive system for renting various types of lifts, including scissor lifts, boom lifts, and forklifts.',
+    description: 'A comprehensive web system for renting various types of lifts, including scissor lifts, boom lifts, and forklifts.',
     image: ofekliftstore_img,
     url: 'https://ofek-lift-order.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/ofek-lift-order-system',
@@ -102,7 +102,7 @@ const projects = [
   },
   {
     name: 'Random Cat Facts',
-    description: 'A React application that displays random facts about cats, providing a fun and educational experience for cat enthusiasts.',
+    description: 'A React web application that displays random facts about cats, providing a fun and educational experience for cat enthusiasts.',
     image: catfacts_img,
     url: 'https://cat-facts-p44a.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/cat-facts',

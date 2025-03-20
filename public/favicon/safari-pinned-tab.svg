@@ -1,1 +1,7 @@
- 
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Letter N for Safari pinned tab (should be single color) -->
+  <path d="M130 150v212h40V230l80 132h40V150h-40v132l-80-132z" fill="#000000" />
+  <!-- Abstract design elements -->
+  <circle cx="390" cy="256" r="50" fill="#000000" />
+  <circle cx="350" cy="190" r="30" fill="#000000" />
+</svg> 

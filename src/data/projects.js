@@ -76,14 +76,14 @@ const projects = [
   {
     name: 'NetViz Dashboard',
     description: 'A Node.js server that analyzes domains and IPs, returning valuable information about network topology and security assessments. good cyber tool',
-    image: netviz_img1,
+    image: netviz_img2,
     url: 'https://netviz-dashboard.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/netViz_backend',
   },
   {
     name: 'NetScan360',
     description: 'The front-end interface for NetViz, providing comprehensive network topology analysis and visualization. good cyber tool',
-    image: netviz_img2,
+    image: netviz_img1,
     url: 'https://netscan.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/netViz',
   },

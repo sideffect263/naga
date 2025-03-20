@@ -10,7 +10,6 @@ const MainWrapper = styled.main`
   background: linear-gradient(90deg, rgba(0,36,61,1) 0%, rgba(9,121,112,1) 100%);
   color: #fff;
   text-align: center;
-  font-family: 'Raleway', sans-serif; /* Change the font family */
 
 
 
@@ -135,7 +134,7 @@ const DiscordLink = styled.a`
 const MainSection = () => (
   <MainWrapper>
  <Hero>
- <h1>Got a cool <span id='colorText1' class="shadow-text">a</span><span id='colorText2' class="shadow-text">p</span><span id='colorText3' class="shadow-text">p</span> idea?</h1>
+ <h1>Got a cool <span id='' className=''>app</span> idea?</h1>
  <p>Let's build something awesome together.</p>
 </Hero>
 

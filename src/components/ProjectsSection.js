@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaGithub, FaDiscord, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaDiscord, FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa';
 import projects from '../data/projects';
+import ReactGA from 'react-ga';
+import { Helmet } from 'react-helmet';
 
 const ProjectsSectionContainer = styled.section`
   background-color: var(--bg-color);
@@ -177,6 +180,8 @@ const ProjectLinks = styled.div`
   display: flex;
   gap: 15px;
   margin-top: auto;
+  align-items: center;
+  justify-content: center;
   
   @media (max-width: 480px) {
     gap: 20px;
@@ -186,7 +191,7 @@ const ProjectLinks = styled.div`
 
 const ProjectLink = styled.a`
   color: var(--primary-color);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   transition: var(--transition);
   
   &:hover {
@@ -233,10 +238,43 @@ const FilterButton = styled.button`
   }
 `;
 
+const ProjectCardLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const ProjectDetailLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  transition: var(--transition);
+  
+  &:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.2);
+  }
+`;
+
 const ProjectsSection = () => {
   const [activeProjects, setActiveProjects] = useState(projects);
   const [filter, setFilter] = useState('all');
   const [isAnimating, setIsAnimating] = useState(false);
+  
+  // Get unique categories from all projects
+  const allCategories = [...new Set(projects.flatMap(project => project.categories || []))];
   
   // Randomize projects on initial load
   useEffect(() => {
@@ -250,6 +288,13 @@ const ProjectsSection = () => {
     setIsAnimating(true);
     setFilter(newFilter);
     
+    // Track filter change in Google Analytics
+    ReactGA.event({
+      category: 'Projects',
+      action: 'Filter Change',
+      label: newFilter
+    });
+    
     // Wait for fade out animation
     setTimeout(() => {
       if (newFilter === 'all') {
@@ -257,10 +302,9 @@ const ProjectsSection = () => {
         const shuffledProjects = [...projects].sort(() => Math.random() - 0.5);
         setActiveProjects(shuffledProjects);
       } else {
-        // For demonstration purposes, we'll filter based on project descriptions
-        // In a real app, you might want to add tags to your projects
+        // Filter based on project categories
         const filtered = projects.filter(project => 
-          project.description.toLowerCase().includes(newFilter.toLowerCase())
+          project.categories && project.categories.includes(newFilter)
         );
         setActiveProjects(filtered);
       }
@@ -272,8 +316,41 @@ const ProjectsSection = () => {
     }, 300);
   };
 
+  // Generate schema.org JSON-LD for the projects collection
+  const projectsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": activeProjects.map((project, index) => ({
+      "@type": "SoftwareApplication",
+      "position": index + 1,
+      "name": project.name,
+      "description": project.description,
+      "image": project.image,
+      "url": project.url || project.gitHubUrl,
+      "applicationCategory": project.categories ? project.categories.join(', ') : "WebApplication",
+      "operatingSystem": "Web",
+      "datePublished": project.dateCreated || "2022-01-01",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/OnlineOnly"
+      },
+      "sourceOrganization": {
+        "@type": "Organization",
+        "name": "NAGA",
+        "url": "https://naga.com"
+      }
+    }))
+  };
+
   return (
     <ProjectsSectionContainer id="projects">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(projectsSchema)}
+        </script>
+      </Helmet>
       <ProjectsContainer>
         <SectionTitle>My Projects</SectionTitle>
         <SectionDescription>
@@ -305,52 +382,129 @@ const ProjectsSection = () => {
           >
             Cybersecurity
           </FilterButton>
+          {/* Add more dynamic filters based on categories */}
+          {allCategories
+            .filter(cat => !['web', 'data', 'cyber'].includes(cat))
+            .slice(0, 2) // Limit to avoid too many buttons
+            .map(category => (
+              <FilterButton
+                key={category}
+                active={filter === category}
+                onClick={() => handleFilterChange(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </FilterButton>
+            ))
+          }
         </FilterContainer>
         
         <ProjectsGrid style={{ opacity: isAnimating ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}>
           {activeProjects.map((project, index) => (
-            <ProjectCard key={`${project.name}-${index}`} style={{ 
-              animationDelay: `${index * 0.1}s`,
-            }}>
-              <ProjectImage>
-                <img src={project.image} alt={project.name} />
-              </ProjectImage>
-              <ProjectContent>
-                <ProjectTitle>{project.name}</ProjectTitle>
-                <ProjectDescription>{project.description}</ProjectDescription>
-                <ProjectLinks>
-                  {project.url && (
-                    <ProjectLink 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      aria-label={`Visit ${project.name} website`}
-                    >
-                      <FaExternalLinkAlt />
-                    </ProjectLink>
+            <ProjectCard 
+              key={`${project.name}-${index}`} 
+              style={{ animationDelay: `${index * 0.1}s` }}
+              itemScope
+              itemType="https://schema.org/SoftwareApplication"
+            >
+              <ProjectCardLink to={`/projects/${project.slug || project.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                <ProjectImage>
+                  <img 
+                    src={project.image} 
+                    alt={`${project.name} - ${project.description.split('.')[0]}`} 
+                    loading="lazy"
+                    width="100%"
+                    height="auto"
+                    itemProp="image"
+                  />
+                </ProjectImage>
+                <ProjectContent>
+                  <ProjectTitle itemProp="name">{project.name}</ProjectTitle>
+                  <ProjectDescription itemProp="description">{project.description}</ProjectDescription>
+                  {project.technologies && (
+                    <div className="technologies" itemProp="applicationCategory">
+                      {project.technologies.slice(0, 3).map((tech, i) => (
+                        <span key={i} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
                   )}
-                  {project.gitHubUrl && (
-                    <ProjectLink 
-                      href={project.gitHubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      aria-label={`${project.name} GitHub repository`}
-                    >
-                      <FaGithub />
-                    </ProjectLink>
-                  )}
-                  {project.discordUrl && (
-                    <ProjectLink 
-                      href={project.discordUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      aria-label={`Join ${project.name} Discord`}
-                    >
-                      <FaDiscord />
-                    </ProjectLink>
-                  )}
-                </ProjectLinks>
-              </ProjectContent>
+                  
+                  <ProjectDetailLink 
+                    style={{ display: 'none' }}
+                    to={`/projects/${project.slug || project.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    onClick={() => {
+                      ReactGA.event({
+                        category: 'Projects',
+                        action: 'Clicked Project Details',
+                        label: project.name
+                      });
+                    }}
+                  >
+                    <FaInfoCircle /> View Details
+                  </ProjectDetailLink>
+                  
+                  <ProjectLinks>
+                    {project.url && (
+                      <ProjectLink 
+                        href={project.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${project.name} website`}
+                        itemProp="url"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          ReactGA.event({
+                            category: 'Projects',
+                            action: 'Clicked Project URL',
+                            label: project.name
+                          });
+                        }}
+                      >
+                        <FaExternalLinkAlt />
+                      </ProjectLink>
+                    )}
+                    {project.gitHubUrl && (
+                      <ProjectLink 
+                        href={project.gitHubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={`${project.name} GitHub repository`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          ReactGA.event({
+                            category: 'Projects',
+                            action: 'Clicked GitHub Link',
+                            label: project.name
+                          });
+                        }}
+                      >
+                        <FaGithub />
+                      </ProjectLink>
+                    )}
+                    {project.discordUrl && (
+                      <ProjectLink 
+                        href={project.discordUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={`Join ${project.name} Discord`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          ReactGA.event({
+                            category: 'Projects',
+                            action: 'Clicked Discord Link',
+                            label: project.name
+                          });
+                        }}
+                      >
+                        <FaDiscord />
+                      </ProjectLink>
+                    )}
+                  </ProjectLinks>
+                  
+                  {/* Hidden metadata for SEO */}
+                  <meta itemProp="operatingSystem" content="Web" />
+                  <meta itemProp="datePublished" content={project.dateCreated || "2022-01-01"} />
+                </ProjectContent>
+              </ProjectCardLink>
             </ProjectCard>
           ))}
         </ProjectsGrid>

@@ -1,0 +1,10 @@
+This file serves as a placeholder for the og-image.jpg file.
+
+Recommendations for creating an effective OG image:
+1. Size: 1200x630 pixels (optimal for most social platforms)
+2. Include NAGA logo and name prominently
+3. Use a dark background consistent with site theme
+4. Include a brief tagline like "Innovative App Solutions"
+5. Keep text minimal and highly readable
+6. Ensure good contrast for visibility
+7. Avoid placing critical elements at the edges (may get cropped) 

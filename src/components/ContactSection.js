@@ -209,7 +209,7 @@ const ContactSection = () => {
           
           <div style={{ marginTop: '40px' }}>
             <SocialShare 
-              url="https://naga.com" 
+              url="https://www.ofektechnology.com" 
               title="NAGA - Innovative App Concept Solutions" 
               description="NAGA - Challenge us with your app concept. We'll deliver innovative solutions that drive results for web, mobile, and data applications."
             />

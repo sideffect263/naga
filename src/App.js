@@ -26,7 +26,7 @@ const LoadingComponent = () => (
 const TRACKING_ID = "G-9946VW8P5L"; // Replace with your Google Analytics tracking ID
 
 // Home page component that contains all sections
-const HomePage = ({ darkMode, toggleTheme, activeSection, setActiveSection }) => {
+const HomePage = ({ darkMode, toggleTheme, activeSection, setActiveSection, scrollToSection }) => {
   return (
     <>
       <SEO 
@@ -58,6 +58,29 @@ const HomePage = ({ darkMode, toggleTheme, activeSection, setActiveSection }) =>
         <Footer />
       </Suspense>
     </>
+  );
+};
+
+// Component for section-specific routes that redirect to homepage with proper section scrolling
+const SectionRoute = ({ darkMode, toggleTheme, activeSection, setActiveSection, section }) => {
+  useEffect(() => {
+    // Scroll to the designated section after component mounts
+    const targetSection = document.getElementById(section);
+    if (targetSection) {
+      setTimeout(() => {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(section);
+      }, 100);
+    }
+  }, [section, setActiveSection]);
+
+  return (
+    <HomePage 
+      darkMode={darkMode} 
+      toggleTheme={toggleTheme} 
+      activeSection={section}
+      setActiveSection={setActiveSection}
+    />
   );
 };
 
@@ -113,7 +136,7 @@ const App = () => {
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
             // Track page section view in Google Analytics
-            ReactGA.pageview(`/#${section}`);
+            ReactGA.pageview(`/${section === 'home' ? '' : section}`);
             break;
           }
         }
@@ -147,21 +170,20 @@ const App = () => {
     });
   };
 
+  // Function for section scrolling
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }
+  };
+
   return(
     <Router>
       <div className="app-container">
         <Routes>
-          {/* Project Detail Route */}
-          <Route 
-            path="/projects/:projectSlug" 
-            element={
-              <Suspense fallback={<LoadingComponent />}>
-                <ProjectDetail />
-              </Suspense>
-            } 
-          />
-          
-          {/* Home Page Route with All Sections */}
+          {/* Home Route */}
           <Route 
             path="/" 
             element={
@@ -171,6 +193,56 @@ const App = () => {
                 activeSection={activeSection}
                 setActiveSection={setActiveSection}
               />
+            } 
+          />
+          
+          {/* Section-specific Routes - these should scroll to the appropriate section */}
+          <Route 
+            path="/projects" 
+            element={
+              <SectionRoute 
+                darkMode={darkMode}
+                toggleTheme={toggleTheme}
+                activeSection={activeSection}
+                setActiveSection={setActiveSection}
+                section="projects"
+              />
+            }
+          />
+          
+          <Route 
+            path="/about" 
+            element={
+              <SectionRoute 
+                darkMode={darkMode}
+                toggleTheme={toggleTheme}
+                activeSection={activeSection}
+                setActiveSection={setActiveSection}
+                section="about"
+              />
+            }
+          />
+          
+          <Route 
+            path="/contact" 
+            element={
+              <SectionRoute 
+                darkMode={darkMode}
+                toggleTheme={toggleTheme}
+                activeSection={activeSection}
+                setActiveSection={setActiveSection}
+                section="contact"
+              />
+            }
+          />
+          
+          {/* Project Detail Route */}
+          <Route 
+            path="/projects/:projectSlug" 
+            element={
+              <Suspense fallback={<LoadingComponent />}>
+                <ProjectDetail />
+              </Suspense>
             } 
           />
           

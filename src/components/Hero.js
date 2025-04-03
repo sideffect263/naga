@@ -177,6 +177,8 @@ const Title = styled.h1`
   font-size: 4.5rem;
   margin-bottom: 20px;
   animation: ${fadeIn} 1s ease-out;
+  display: block;
+  color: var(--text-color);
   
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -596,7 +598,7 @@ const Hero = () => {
         <AnimationContainer ref={containerRef}>
           {renderAnimationElements()}
         </AnimationContainer>
-        <Title>
+        <Title role="heading" aria-level="1">
           Got a cool <Highlight>app</Highlight> idea?
         </Title>
         <Subtitle>
@@ -604,10 +606,22 @@ const Hero = () => {
           Let's build something awesome together.
         </Subtitle>
         <ButtonContainer>
-          <HeroButton href="#projects" className="primary" style={{display:'flex'}} onClick={(e) => scrollToSection(e, 'projects')}>
+          <HeroButton 
+            href="/projects" 
+            className="primary" 
+            style={{display:'flex'}} 
+            onClick={(e) => scrollToSection(e, 'projects')}
+            aria-label="View my projects"
+          >
             View Projects
           </HeroButton>
-          <HeroButton href="#contact" className="secondary" style={{display:'flex'}} onClick={(e) => scrollToSection(e, 'contact')}>
+          <HeroButton 
+            href="/contact" 
+            className="secondary" 
+            style={{display:'flex'}} 
+            onClick={(e) => scrollToSection(e, 'contact')}
+            aria-label="Contact me"
+          >
             Get In Touch
           </HeroButton>
         </ButtonContainer>

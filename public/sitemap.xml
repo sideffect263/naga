@@ -2,130 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main pages -->
   <url>
-    <loc>https://www.ofektechnology.com</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.com#projects</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.com#about</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/about</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.com#contact</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/contact</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Individual project pages -->
   <url>
-    <loc>https://www.ofektechnology.comprojects/mood-based-ui</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/mood-based-ui</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/m33t</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/m33t</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/netviz-dashboard</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/netviz-dashboard</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/netscan360</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/netscan360</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/live-threat-map</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/live-threat-map</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/ofek-lift-order</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/ofek-lift-order</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/stellar-spectacle</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/stellar-spectacle</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/ctf-zone</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/ctf-zone</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/ml-model-trainer</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/ml-model-trainer</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/lift-finder</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/lift-finder</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/theboxtivon</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/theboxtivon</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/netsecdev</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/netsecdev</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/newsworld</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/newsworld</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/cat-facts</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/cat-facts</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/quantum-computing</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/quantum-computing</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/autodata</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/autodata</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.ofektechnology.comprojects/ai-story-teller</loc>
-    <lastmod>2023-07-15</lastmod>
+    <loc>https://www.ofektechnology.com/projects/ai-story-teller</loc>
+    <lastmod>2023-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

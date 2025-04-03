@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
   background: var(--header-bg);
@@ -58,6 +59,35 @@ const NavLinks = styled.nav`
 `;
 
 const NavLink = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: ${props => props.className === 'active' ? '100%' : '0'};
+    height: 2px;
+    background: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: var(--transition);
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+  
+  &.active {
+    color: var(--accent-color);
+  }
+`;
+
+// Create a version of NavLink that uses React Router's Link 
+const NavLinkInternal = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: 16px;
@@ -249,6 +279,48 @@ const MobileNavLink = styled.a`
   }
 `;
 
+// Create internal versions for mobile menu too
+const MobileNavLinkInternal = styled(Link)`
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  padding: 16px;
+  margin: 5px 0;
+  border-radius: 8px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  animation: ${slideIn} 0.3s forwards;
+  animation-delay: ${props => props.index * 0.1}s;
+  opacity: 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--primary-color);
+    border-radius: 0 4px 4px 0;
+    transition: height 0.3s;
+  }
+  
+  &:hover, &.active {
+    background: rgba(var(--primary-color-rgb), 0.1);
+    color: var(--primary-color);
+    
+    &::before {
+      height: 70%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 20px;
+    padding: 20px 16px;
+  }
+`;
+
 const MobileMenuHeader = styled.div`
   padding: 20px;
   position: absolute;
@@ -374,33 +446,47 @@ const Header = () => {
         boxShadow: isScrolled ? '0 4px 20px rgba(0, 0, 0, 0.2)' : 'var(--shadow)'
       }}>
         <NavContainer>
-          <Logo>NAGA</Logo>
+          <Logo>
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }} aria-label="NAGA - Home">
+              NAGA
+            </Link>
+          </Logo>
           <NavLinks>
+            {/* Home link - Use both for SEO */}
             <NavLink 
-              href="#home" 
+              href="/" 
               onClick={(e) => scrollToSection(e, 'home')}
               className={activeSection === 'home' ? 'active' : ''}
             >
               Home
             </NavLink>
+            
+            {/* Projects link - Use both anchor and real link for SEO */}
             <NavLink 
-              href="#projects" 
+              href="/projects" 
               onClick={(e) => scrollToSection(e, 'projects')}
               className={activeSection === 'projects' ? 'active' : ''}
+              data-section="projects"
             >
               Projects
             </NavLink>
+            
+            {/* About link - Use both anchor and real link for SEO */}
             <NavLink 
-              href="#about" 
+              href="/about" 
               onClick={(e) => scrollToSection(e, 'about')}
               className={activeSection === 'about' ? 'active' : ''}
+              data-section="about"
             >
               About
             </NavLink>
+            
+            {/* Contact link - Use both anchor and real link for SEO */}
             <NavLink 
-              href="#contact" 
+              href="/contact" 
               onClick={(e) => scrollToSection(e, 'contact')}
               className={activeSection === 'contact' ? 'active' : ''}
+              data-section="contact"
             >
               Contact
             </NavLink>
@@ -417,9 +503,9 @@ const Header = () => {
         </NavContainer>
         
         <MobileMenuOverlay isOpen={mobileMenuOpen} onClick={toggleMobileMenu} />
-        <MobileMenu isOpen={mobileMenuOpen}>
+        <MobileMenu isOpen={mobileMenuOpen} role="navigation" aria-label="Mobile Navigation">
           <MobileNavLink 
-            href="#home" 
+            href="/" 
             onClick={(e) => scrollToSection(e, 'home')}
             className={activeSection === 'home' ? 'active' : ''}
             index={0}
@@ -427,7 +513,7 @@ const Header = () => {
             Home
           </MobileNavLink>
           <MobileNavLink 
-            href="#projects" 
+            href="/projects" 
             onClick={(e) => scrollToSection(e, 'projects')}
             className={activeSection === 'projects' ? 'active' : ''}
             index={1}
@@ -435,7 +521,7 @@ const Header = () => {
             Projects
           </MobileNavLink>
           <MobileNavLink 
-            href="#about" 
+            href="/about" 
             onClick={(e) => scrollToSection(e, 'about')}
             className={activeSection === 'about' ? 'active' : ''}
             index={2}
@@ -443,7 +529,7 @@ const Header = () => {
             About
           </MobileNavLink>
           <MobileNavLink 
-            href="#contact" 
+            href="/contact" 
             onClick={(e) => scrollToSection(e, 'contact')}
             className={activeSection === 'contact' ? 'active' : ''}
             index={3}

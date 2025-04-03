@@ -1,4 +1,22 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
-Sitemap: https://www.ofektechnology.comsitemap.xml
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.ofektechnology.com/sitemap.xml
+
+# Special directives for specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /

@@ -600,10 +600,10 @@ const Hero = () => {
           Let's build something awesome together.
         </Subtitle>
         <ButtonContainer>
-          <HeroButton href="#projects" className="primary" onClick={(e) => scrollToSection(e, 'projects')}>
+          <HeroButton href="#projects" className="primary" style={{display:'flex'}} onClick={(e) => scrollToSection(e, 'projects')}>
             View Projects
           </HeroButton>
-          <HeroButton href="#contact" className="secondary" onClick={(e) => scrollToSection(e, 'contact')}>
+          <HeroButton href="#contact" className="secondary" style={{display:'flex'}} onClick={(e) => scrollToSection(e, 'contact')}>
             Get In Touch
           </HeroButton>
         </ButtonContainer>

@@ -14,6 +14,7 @@ import catfacts_img from './images/catfacts_img.png';
 import hackermap_img from './images/hackermap_img.png';
 import quantum_img from './images/quantum_img.png';
 import autodata_img from './images/autodata_img.png';
+import ai_story from './images/ai_story.png'
 
 const projects = [
   {
@@ -127,6 +128,13 @@ const projects = [
     image: autodata_img,
     url: 'https://autodata.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/autodata',
+  },
+  {
+    name: 'AI Story Teller',
+    description: 'A browser-based AI storytelling app that generates dynamic, procedural narratives using a small GPT model and Transformers.js. Users can co-create data stories in real time.',
+    image: ai_story,
+    url: 'https://ai-story-teller.ofektechnology.com/',
+    gitHubUrl: 'https://github.com/sideffect263/ai-story-telling',
   },
 ];
 

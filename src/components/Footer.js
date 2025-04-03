@@ -159,7 +159,7 @@ const Footer = () => {
           <h3>Contact</h3>
           <FooterLinks>
             <li>Israel</li>
-            <li><a href="mailto:contact@naga.com">contact@naga.com</a></li>
+            <li><a href="mailto:arielbiton03@gmail.com">arielbiton03@gmail.com</a></li>
           </FooterLinks>
         </FooterSection>
       </FooterContent>

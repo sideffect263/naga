@@ -21,15 +21,11 @@ const projects = [
     name: 'Mood-Based UI',
     slug: 'mood-based-ui',
     description: 'A dynamic site that adapts its user interface based on the user\'s mood, determined by analyzing mouse data usage patterns and applying machine learning models.',
-    extendedDescription: `A cutting-edge web application that dynamically adapts its user interface based on the user's emotional state and interaction patterns. This innovative system uses real-time analysis of mouse movements, click patterns, and interaction timing to infer the user's current mood and engagement level.
-
-    The application employs machine learning algorithms trained on thousands of user sessions to recognize patterns associated with different emotional states such as focus, frustration, excitement, or relaxation. Based on these inferences, the UI automatically adjusts its layout, color scheme, animation speed, and information density to better match the user's current state.
-
-    For example, when detecting signs of user frustration, the interface simplifies, reduces motion, and highlights key navigation elements. During periods of high focus, it minimizes distractions and maximizes content visibility. This responsive adaptation creates a more intuitive and comfortable user experience that goes beyond traditional responsive design by responding to emotional context rather than just device constraints.`,
+    extendedDescription: `A cutting-edge web application that dynamically adapts its user interface based on the user's emotional state and interaction patterns. This innovative system uses real-time analysis of mouse movements, click patterns, and interaction timing to infer the user's current mood and engagement level.`,
     image: dynamic_ui_img,
     url: 'https://mood-based-ui.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/mood-based-ui',
-    categories: ['web', 'machine learning', 'ui/ux', 'frontend'],
+    categories: ['web', 'machine learning', ],
     technologies: ['React', 'Machine Learning', 'CSS', 'JavaScript', 'TensorFlow.js', 'Emotion Recognition'],
     dateCreated: '2022-08-15',
     relatedKeywords: [
@@ -39,30 +35,13 @@ const projects = [
       'machine learning ui',
       'user interaction analysis',
       'mood detection algorithm',
-      'responsive emotional design'
     ],
-    technicalDetails: `
-      <h4>Technical Implementation</h4>
-      <p>The Mood-Based UI system comprises three primary components:</p>
-      <ol>
-        <li><strong>Data Collection Layer</strong>: Records user interactions through mouse movements, click patterns, and timing metrics</li>
-        <li><strong>Inference Engine</strong>: A TensorFlow.js model that processes interaction data to determine emotional state</li>
-        <li><strong>Adaptive UI Renderer</strong>: React components that dynamically adjust based on the inferred emotional state</li>
-      </ol>
-      <p>The system uses a combination of supervised and unsupervised learning techniques to continuously improve its accuracy in detecting emotional states without requiring explicit user feedback.</p>
-    `
-  },
+   },
   {
     name: 'M33t',
     slug: 'm33t',
     description: 'A social platform designed to connect individuals with similar interests and facilitate event planning.',
-    extendedDescription: `M33t is a comprehensive social networking platform specifically designed to help people discover others with shared interests and seamlessly organize in-person and virtual gatherings. Unlike traditional social networks that focus on existing relationships, M33t prioritizes interest-based connections and facilitates the transition from online interaction to real-world meetups.
-
-    The platform employs advanced matching algorithms that analyze users' stated interests, past event participation, and interaction patterns to suggest highly compatible connections. Users can create detailed profiles highlighting their passions, skills, and the types of events they're interested in attending or hosting.
-
-    M33t's standout feature is its intuitive event creation and management system, which simplifies every aspect of coordinating gatherings. From suggesting optimal meeting locations based on participants' locations to handling RSVPs, reminders, and post-event feedback collection, the platform removes friction from the social organizing process.
-
-    The integrated mapping system visualizes nearby events and potential connections, making it easy to discover local opportunities for engagement. For event hosts, M33t provides valuable analytics on attendance patterns, participant satisfaction, and suggestions for future gatherings.`,
+    extendedDescription: `M33t is a comprehensive social networking platform specifically designed to help people discover others with shared interests and seamlessly organize in-person and virtual gatherings. Unlike traditional social networks that focus on existing relationships, M33t prioritizes interest-based connections and facilitates the transition from online interaction to real-world meetups.`,
     image: m33t_img,
     url: 'https://m33t.webflow.io/',
     gitHubUrl: 'https://github.com/sideffect263/M33t-social_Map',
@@ -148,7 +127,7 @@ const projects = [
     url: 'https://decision-tree-app.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/decision-tree-app',
     categories: ['data', 'machine learning', 'visualization'],
-    technologies: ['Python', 'scikit-learn', 'D3.js', 'Flask'],
+    technologies: ['Python', 'scikit-learn', 'D3.js', 'Node.js', 'Express'],
     dateCreated: '2022-01-30',
     relatedKeywords: [
       'decision tree visualization',
@@ -227,17 +206,7 @@ const projects = [
       'IT infrastructure analysis',
       'network security scanner'
     ],
-    technicalDetails: `
-      <h4>Architecture Overview</h4>
-      <p>NetViz Dashboard employs a microservices architecture with these key components:</p>
-      <ul>
-        <li><strong>Data Collection Service</strong>: Handles network scanning, DNS queries, and data gathering</li>
-        <li><strong>Analysis Engine</strong>: Processes raw data to identify patterns, relationships, and potential security issues</li>
-        <li><strong>Visualization API</strong>: Transforms analyzed data into formats optimized for frontend rendering</li>
-        <li><strong>Alert System</strong>: Monitors for suspicious activity and generates notifications</li>
-      </ul>
-      <p>The system uses a combination of active and passive monitoring techniques to build comprehensive network maps while minimizing impact on the monitored infrastructure.</p>
-    `
+    
   },
   {
     name: 'NetScan360',
@@ -254,7 +223,7 @@ const projects = [
     url: 'https://netscan.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/netViz',
     categories: ['cyber', 'network', 'visualization', 'security'],
-    technologies: ['React', 'D3.js', 'Network Visualization', 'REST API', 'SVG', 'Redux'],
+    technologies: ['React',  'Network Visualization', ],
     dateCreated: '2022-02-28',
     relatedKeywords: [
       'network topology mapping',
@@ -361,7 +330,7 @@ const projects = [
     image: quantum_img,
     url: 'https://quantum-computing-interface.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/Quantum-Computing-Interface',
-    categories: ['web', 'educational', 'quantum', 'crypto'],
+    categories: ['web', 'educational', 'quantum', 'crypto', 'diffie-hellman key exchange'],
     technologies: ['React', 'Quantum Libraries', 'Interactive Visualization'],
     dateCreated: '2022-01-10',
     relatedKeywords: [
@@ -382,7 +351,7 @@ const projects = [
     url: 'https://autodata.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/autodata',
     categories: ['data', 'visualization', 'analysis', 'tool'],
-    technologies: ['Python', 'D3.js', 'Flask', 'Machine Learning'],
+    technologies: ['Python', 'D3.js', 'node.js', 'Machine Learning', ],
     dateCreated: '2021-12-05',
     relatedKeywords: [
       'automated data visualization',

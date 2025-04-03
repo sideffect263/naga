@@ -85,7 +85,7 @@ const SkillsContainer = styled.div`
 
 const SkillCard = styled.div`
   background-color: var(--card-bg);
-  padding: 25px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: var(--shadow);
   transition: var(--transition);

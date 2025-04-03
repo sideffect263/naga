@@ -275,11 +275,22 @@ const ProjectsSection = () => {
   
   // Get unique categories from all projects
   const allCategories = [...new Set(projects.flatMap(project => project.categories || []))];
+  // Create a state for randomized categories
+  const [displayedCategories, setDisplayedCategories] = useState([]);
   
-  // Randomize projects on initial load
+  // Randomize projects and categories on initial load
   useEffect(() => {
+    // Randomize projects
     const shuffledProjects = [...projects].sort(() => Math.random() - 0.5);
     setActiveProjects(shuffledProjects);
+    
+    // Randomize categories (excluding the fixed ones)
+    const mainCategories = ['web', 'data', 'cyber'];
+    const otherCategories = allCategories.filter(cat => !mainCategories.includes(cat));
+    const shuffledCategories = [...otherCategories].sort(() => Math.random() - 0.5);
+    // Take a random number of categories between 2 and 4 (adjust as needed)
+    const numCategoriesToShow = Math.floor(Math.random() * 3) + 2;
+    setDisplayedCategories(shuffledCategories.slice(0, numCategoriesToShow));
   }, []);
   
   const handleFilterChange = (newFilter) => {
@@ -382,20 +393,16 @@ const ProjectsSection = () => {
           >
             Cybersecurity
           </FilterButton>
-          {/* Add more dynamic filters based on categories */}
-          {allCategories
-            .filter(cat => !['web', 'data', 'cyber'].includes(cat))
-            .slice(0, 2) // Limit to avoid too many buttons
-            .map(category => (
-              <FilterButton
-                key={category}
-                active={filter === category}
-                onClick={() => handleFilterChange(category)}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </FilterButton>
-            ))
-          }
+          {/* Display randomized categories */}
+          {displayedCategories.map(category => (
+            <FilterButton
+              key={category}
+              active={filter === category}
+              onClick={() => handleFilterChange(category)}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </FilterButton>
+          ))}
         </FilterContainer>
         
         <ProjectsGrid style={{ opacity: isAnimating ? 0 : 1, transition: 'opacity 0.3s ease-in-out' }}>

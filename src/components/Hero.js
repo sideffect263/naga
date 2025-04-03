@@ -72,10 +72,14 @@ const AnimationContainer = styled.div`
 const animatedStyles = css`
   position: absolute;
   will-change: transform;
+  transition: 1s all;
+
   transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.4);
+    transform: scale(1.2);
+    transition: 1s all;
   }
 `;
 
@@ -101,7 +105,7 @@ const ShapeElement = styled.div`
   height: ${props => props.size || '40px'};
   top: ${props => props.top || '0'};
   left: ${props => props.left || '0'};
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   z-index: ${props => props.zIndex || 1};

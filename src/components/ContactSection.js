@@ -159,7 +159,7 @@ const ContactSection = () => {
               <ContactIcon>
                 <FaEnvelope />
               </ContactIcon>
-              <a href="mailto:contact@naga.com">contact@naga.com</a>
+              <a href="mailto:arielbiton03@gmail.com">arielbiton03@gmail.com</a>
             </ContactInfoItem>
           </ContactInfoList>
           

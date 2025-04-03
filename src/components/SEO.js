@@ -24,7 +24,7 @@ const SEO = ({
     'contactPoint': {
       '@type': 'ContactPoint',
       'contactType': 'customer service',
-      'email': 'contact@naga.com'
+      'email': 'arielbiton03@gmail.com'
     },
     'sameAs': [
       'https://github.com/sideffect263',

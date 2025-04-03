@@ -367,7 +367,7 @@ const Header = () => {
   return (
     <>
       <HeaderContainer style={{ 
-        transition: all 0.5s,
+        transition: 'all 0.5s',
         background: isScrolled ? 'rgba(0, 36, 61, 0.95)' : 'var(--header-bg)',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
         '-webkit-backdrop-filter': isScrolled ? 'blur(10px)' : 'none',

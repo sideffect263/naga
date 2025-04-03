@@ -5,6 +5,7 @@ import { FaGithub, FaDiscord, FaExternalLinkAlt, FaInfoCircle } from 'react-icon
 import projects from '../data/projects';
 import ReactGA from 'react-ga';
 import { Helmet } from 'react-helmet';
+import OptimizedImage from './OptimizedImage';
 
 const ProjectsSectionContainer = styled.section`
   background-color: var(--bg-color);
@@ -123,21 +124,12 @@ const ProjectCard = styled.div`
   }
 `;
 
-const ProjectImage = styled.div`
+const OptimizedImageWrapper = styled.div`
   height: 200px;
   overflow: hidden;
   position: relative;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  ${ProjectCard}:hover & img {
-    transform: scale(1.05);
-  }
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   
   @media (max-width: 480px) {
     height: 180px;
@@ -414,16 +406,19 @@ const ProjectsSection = () => {
               itemType="https://schema.org/SoftwareApplication"
             >
               <ProjectCardLink to={`/projects/${project.slug || project.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                <ProjectImage>
-                  <img 
-                    src={project.image} 
-                    alt={`${project.name} - ${project.description.split('.')[0]}`} 
-                    loading="lazy"
+                <OptimizedImageWrapper>
+                  <OptimizedImage
+                    src={project.image}
+                    alt={`${project.name} - ${project.description.split('.')[0]}`}
+                    height="100%"
+                    borderRadius="10px 10px 0 0"
+                    hoverEffect={true}
                     width="100%"
-                    height="auto"
-                    itemProp="image"
+                    imgProps={{
+                      itemProp: "image"
+                    }}
                   />
-                </ProjectImage>
+                </OptimizedImageWrapper>
                 <ProjectContent>
                   <ProjectTitle itemProp="name">{project.name}</ProjectTitle>
                   <ProjectDescription itemProp="description">{project.description}</ProjectDescription>

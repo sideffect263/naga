@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaTwitter, FaInstagram } from 'react-icons/fa';
+import ObfuscatedEmail from './ObfuscatedEmail';
+import SocialShare from './SocialShare';
 
 const ContactSectionContainer = styled.section`
   background-color: var(--bg-color);
@@ -159,21 +161,59 @@ const ContactSection = () => {
               <ContactIcon>
                 <FaEnvelope />
               </ContactIcon>
-              <a href="mailto:arielbiton03@gmail.com">arielbiton03@gmail.com</a>
+              <ObfuscatedEmail 
+                email="arielbiton03@gmail.com" 
+                linkText="arielbiton03@gmail.com" 
+                showIcon={false}
+              />
             </ContactInfoItem>
           </ContactInfoList>
           
           <SocialLinks>
             <h4>Find me on</h4>
             <div className="social-icons">
-              <SocialIcon href="https://github.com/sideffect263" target="_blank" rel="noopener noreferrer">
+              <SocialIcon 
+                href="https://github.com/sideffect263" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+              >
                 <FaGithub />
               </SocialIcon>
-              <SocialIcon href="https://www.linkedin.com/in/ariel-biton/" target="_blank" rel="noopener noreferrer">
+              <SocialIcon 
+                href="https://www.linkedin.com/in/ariel-biton/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+              >
                 <FaLinkedin />
+              </SocialIcon>
+              <SocialIcon 
+                href="https://twitter.com/arielbiton" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Twitter Profile"
+              >
+                <FaTwitter />
+              </SocialIcon>
+              <SocialIcon 
+                href="https://www.instagram.com/arielbitonn/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram Profile"
+              >
+                <FaInstagram />
               </SocialIcon>
             </div>
           </SocialLinks>
+          
+          <div style={{ marginTop: '40px' }}>
+            <SocialShare 
+              url="https://naga.com" 
+              title="NAGA - Innovative App Concept Solutions" 
+              description="NAGA - Challenge us with your app concept. We'll deliver innovative solutions that drive results for web, mobile, and data applications."
+            />
+          </div>
         </ContactInfo>
       </ContactContainer>
     </ContactSectionContainer>

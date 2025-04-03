@@ -14,6 +14,7 @@ const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
 const ContactSection = lazy(() => import('./components/ContactSection'));
 const Footer = lazy(() => import('./components/Footer'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 // Loading component for suspense fallback
 const LoadingComponent = () => (
@@ -66,22 +67,22 @@ const getSectionSeo = (section) => {
     case 'projects':
       return {
         description: 'Explore NAGA\'s portfolio of web apps, cybersecurity tools, and data visualization projects.',
-        keywords: 'web development projects, app portfolio, cybersecurity tools, data visualization'
+        keywords: 'web development projects, app portfolio, cybersecurity tools, data visualization, software development, application development'
       };
     case 'about':
       return {
         description: 'Learn about NAGA\'s mission, expertise, and our approach to delivering innovative app solutions.',
-        keywords: 'app development company, software development team, tech innovation'
+        keywords: 'app development company, software development team, tech innovation, web application development, custom software solutions'
       };
     case 'contact':
       return {
         description: 'Get in touch with NAGA for your app concept needs. We\'re ready to turn your ideas into reality.',
-        keywords: 'app development services, hire developers, software consultation'
+        keywords: 'app development services, hire developers, software consultation, web app development, contact developers'
       };
     default:
       return {
         description: 'NAGA - Challenge us with your app concept. We\'ll deliver innovative solutions that drive results for web, mobile, and data applications.',
-        keywords: 'app development, web apps, cybersecurity, data visualization, custom software, mobile apps, UI/UX design'
+        keywords: 'app development, web apps, cybersecurity, data visualization, custom software, mobile apps, UI/UX design, web development, full-stack'
       };
   }
 };
@@ -91,7 +92,12 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    ReactGA.initialize(TRACKING_ID);
+    // Initialize analytics
+    ReactGA.initialize(TRACKING_ID, {
+      gaOptions: {
+        siteSpeedSampleRate: 100
+      }
+    });
     ReactGA.pageview(window.location.pathname + window.location.search);
     
     // Apply theme class to body
@@ -114,14 +120,31 @@ const App = () => {
       }
     };
 
+    // Optimize for mobile
+    const handleResize = () => {
+      // Set viewport height for mobile browsers
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial call
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [darkMode]);
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
+    // Track theme toggle in Google Analytics
+    ReactGA.event({
+      category: 'User',
+      action: 'Toggled Theme',
+      label: darkMode ? 'Light Mode' : 'Dark Mode'
+    });
   };
 
   return(
@@ -151,8 +174,18 @@ const App = () => {
             } 
           />
           
-          {/* Redirect any other routes to home */}
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* Custom 404 page */}
+          <Route 
+            path="/404" 
+            element={
+              <Suspense fallback={<LoadingComponent />}>
+                <NotFound />
+              </Suspense>
+            } 
+          />
+          
+          {/* Redirect any other routes to 404 page */}
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </div>
     </Router>

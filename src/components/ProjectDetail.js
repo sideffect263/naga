@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link , useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import { FaGithub, FaDiscord, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa';
 import projects from '../data/projects';
 import ReactGA from 'react-ga';
+import SocialShare from './SocialShare';
+import OptimizedImage from './OptimizedImage';
 
 const ProjectDetailContainer = styled.section`
   background-color: var(--bg-color);
@@ -208,7 +210,8 @@ const HiddenKeywords = styled.div`
 const ProjectDetail = () => {
   const { projectSlug } = useParams();
   const navigate = useNavigate();
-
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
   // Find project by slug
   const project = projects.find(p => 
     p.slug === projectSlug || p.name.toLowerCase().replace(/\s+/g, '-') === projectSlug
@@ -306,11 +309,17 @@ const ProjectDetail = () => {
       
       <ProjectContent>
         <ProjectHeader>
-          <ProjectHeaderImage 
+          <OptimizedImage 
             src={project.image} 
-            alt={`${project.name} - ${project.description.split('.')[0]}`} 
-            width="1200"
-            height="600"
+            alt={`${project.name} - ${project.description.split('.')[0]}`}
+            height="500px"
+            borderRadius="12px 12px 0 0"
+            hoverEffect={true}
+            imgProps={{
+              width: "1200",
+              height: "600",
+              itemProp: "image"
+            }}
           />
         </ProjectHeader>
         
@@ -322,6 +331,14 @@ const ProjectDetail = () => {
               <p key={index}>{paragraph}</p>
             ))}
           </ProjectDescription>
+          
+          {/* Add social sharing */}
+          <SocialShare 
+            url={`https://naga.com/projects/${projectSlug}`}
+            title={`${project.name} | NAGA Projects`}
+            description={project.description}
+            media={project.image}
+          />
           
           <MetaSection>
             <MetaTitle>Technologies Used</MetaTitle>

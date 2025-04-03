@@ -293,10 +293,7 @@ const ProjectDetail = () => {
         <meta property="twitter:title" content={`${project.name} | NAGA Projects`} />
         <meta property="twitter:description" content={project.description} />
         <meta property="twitter:image" content={project.image} />
-        
-        {/* Canonical */}
-        <link rel="canonical" href={`https://naga.com/projects/${projectSlug}`} />
-        
+            
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify(projectSchema)}
@@ -334,7 +331,7 @@ const ProjectDetail = () => {
           
           {/* Add social sharing */}
           <SocialShare 
-            url={`https://naga.com/projects/${projectSlug}`}
+            url={`https://www.ofektechnology.comprojects/${projectSlug}`}
             title={`${project.name} | NAGA Projects`}
             description={project.description}
             media={project.image}

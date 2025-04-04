@@ -1,6 +1,5 @@
 import dynamic_ui_img from './images/dynamic_ui_img.png';
 import ctf_zone_img from './images/ctf_zone_img.png';
-import liftfinder_img from './images/liftfinder_img.png';
 import m33t_img from './images/m33t_img.jpeg';
 import ofekliftstore_img from './images/ofekliftstore_img.png';
 import public_trainer_img from './images/public_trainer_img.png';
@@ -14,375 +13,384 @@ import catfacts_img from './images/catfacts_img.png';
 import hackermap_img from './images/hackermap_img.png';
 import quantum_img from './images/quantum_img.png';
 import autodata_img from './images/autodata_img.png';
-import ai_story from './images/ai_story.png'
+import ai_story from './images/ai_story.png';
 
 const projects = [
   {
     name: 'Mood-Based UI',
     slug: 'mood-based-ui',
-    description: 'A dynamic site that adapts its user interface based on the user\'s mood, determined by analyzing mouse data usage patterns and applying machine learning models.',
-    extendedDescription: `A cutting-edge web application that dynamically adapts its user interface based on the user's emotional state and interaction patterns. This innovative system uses real-time analysis of mouse movements, click patterns, and interaction timing to infer the user's current mood and engagement level.`,
+    description: 'An adaptive UI system that analyzes mouse movement patterns to detect user mental state and dynamically adjusts the interface accordingly.',
+    extendedDescription: `A dynamic web application that adapts its interface based on user interaction patterns. By analyzing mouse movements with machine learning algorithms (KNN), the system classifies user behavior into three distinct patterns and adjusts UI elements in real-time. The front-end responds by changing colors, element positions, sizes, and layouts tailored to the user's detected mental state. 
+    
+    The system works by sending mouse usage data from the front-end to the server, which uses a trained algorithm to predict the user's mental state and returns appropriate UI adjustments. Many users report they don't even notice the subtle UI changes while using the application, creating a seamless experience.`,
     image: dynamic_ui_img,
     url: 'https://mood-based-ui.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/mood-based-ui',
-    categories: ['web', 'machine learning', ],
-    technologies: ['React', 'Machine Learning', 'CSS', 'JavaScript', 'TensorFlow.js', 'Emotion Recognition'],
+    categories: ['web', 'machine learning'],
+    technologies: ['React', 'Node.js', 'Express', 'Machine Learning', 'KNN Algorithm'],
     dateCreated: '2022-08-15',
     relatedKeywords: [
       'adaptive user interface',
-      'emotional ui design',
-      'mouse pattern recognition',
-      'machine learning ui',
-      'user interaction analysis',
-      'mood detection algorithm',
+      'mouse pattern analysis',
+      'behavior-based UI',
+      'dynamic interface adjustment',
+      'real-time UI adaptation',
+      'user experience enhancement',
     ],
-   },
+  },
   {
     name: 'M33t',
     slug: 'm33t',
-    description: 'A social platform designed to connect individuals with similar interests and facilitate event planning.',
-    extendedDescription: `M33t is a comprehensive social networking platform specifically designed to help people discover others with shared interests and seamlessly organize in-person and virtual gatherings. Unlike traditional social networks that focus on existing relationships, M33t prioritizes interest-based connections and facilitates the transition from online interaction to real-world meetups.`,
+    description: 'A mobile app built with Expo and React Native that shows users on a map and helps connect like-minded people.',
+    extendedDescription: `M33t is a social platform developed as a mobile application using Expo and React Native. The app was published for testing on Google Play. While still in development, the current version allows users to create profiles and view other users' live locations on an interactive map.
+    
+    The core concept is to connect like-minded individuals based on geographic proximity, though features for adding events to the map and more advanced matching functionality are still in development.`,
     image: m33t_img,
     url: 'https://m33t.webflow.io/',
     gitHubUrl: 'https://github.com/sideffect263/M33t-social_Map',
-    categories: ['web', 'social', 'frontend'],
-    technologies: ['WebFlow', 'JavaScript', 'Social API', 'Google Maps API', 'NoSQL Database'],
+    categories: ['mobile', 'social', 'mapping'],
+    technologies: ['Expo', 'React Native', 'Google Maps API', 'User Authentication'],
     dateCreated: '2022-06-10',
     relatedKeywords: [
-      'social event platform',
-      'interest-based networking',
-      'event planning application',
-      'meetup organization tool',
-      'community building platform',
       'location-based social network',
-      'event discovery app'
+      'user mapping platform',
+      'proximity-based connections',
+      'social discovery app',
+      'interactive user map',
+      'mobile social platform'
     ]
   },
   {
     name: 'Ofek Lift Order System',
     slug: 'ofek-lift-order',
-    description: 'A comprehensive web system for renting various types of lifts, including scissor lifts, boom lifts, and forklifts.',
+    description: 'A specialized system that helps users select the most appropriate and cost-effective lift vehicle for specific job requirements.',
+    extendedDescription: `The Ofek Lift Order System addresses a common problem in the industrial lift sector: choosing the right lift equipment for specific jobs. Users often select vehicles that are either unsuitable (like missing 4x4 capabilities for off-road jobs) or unnecessarily expensive.
+    
+    This React-based application serves as both a selection tool and knowledge system for companies, helping them optimize their equipment choices and reduce operational costs. The system focuses on matching job requirements with appropriate vehicle specifications to ensure efficiency and cost-effectiveness.`,
     image: ofekliftstore_img,
     url: 'https://ofek-lift-order.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/ofek-lift-order-system',
-    categories: ['web', 'e-commerce', 'rental'],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    categories: ['web', 'industrial', 'tool'],
+    technologies: ['React'],
     dateCreated: '2021-11-22',
     relatedKeywords: [
-      'equipment rental platform',
-      'lift rental system',
-      'construction equipment booking',
-      'online lift ordering',
-      'industrial equipment rental',
-      'scissor lift reservation',
-      'boom lift rental application'
+      'lift equipment selection',
+      'industrial vehicle matching',
+      'cost optimization tool',
+      'lift job requirements',
+      'equipment specification system',
+      'industrial knowledge base'
     ]
   },
   {
     name: 'Stellar Spectacle',
     slug: 'stellar-spectacle',
-    description: 'An interactive visual demonstration of complex space phenomena, providing an educational experience.',
+    description: 'A space exploration game prototype with free-roam capabilities, moving toward becoming an MMO PVP experience.',
+    extendedDescription: `Stellar Spectacle is an evolving game development project aimed at creating a free-roam space exploration MMO with PVP elements. Currently, it offers a single-player experience that allows users to freely explore a rendered space environment.
+    
+    Built using React, Node.js, Express, WebSocket, and Three.js, this prototype demonstrates the core mechanics and visual experience while laying the groundwork for expanded multiplayer functionality in future iterations.`,
     image: space_img,
     url: 'https://skyone.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/stellar-spectacle',
     discordUrl: 'https://discord.gg/AM9V3m7U',
-    categories: ['web', 'educational', 'data', 'visualization'],
-    technologies: ['Three.js', 'WebGL', 'JavaScript', 'Physics Engine'],
+    categories: ['game', 'space', 'simulation'],
+    technologies: ['React', 'Node.js', 'Express', 'WebSocket', 'Three.js'],
     dateCreated: '2022-03-05',
     relatedKeywords: [
-      'space visualization',
-      'astronomy education platform',
-      'interactive solar system',
-      'cosmic phenomena simulation',
-      '3D universe exploration',
-      'educational astronomy application',
-      'WebGL space visualization'
+      'space exploration game',
+      'free-roam space simulator',
+      'space MMO prototype',
+      '3D space environment',
+      'web-based space game',
+      'interactive space simulation'
     ]
   },
   {
     name: 'Capture The Flag Zone',
     slug: 'ctf-zone',
-    description: 'A cyber playground offering capture the flag challenges, designed to enhance cybersecurity skills.',
+    description: 'A web-based cybersecurity challenge platform focused on web vulnerabilities and hidden flag discovery.',
+    extendedDescription: `Capture The Flag Zone is a cybersecurity training platform built with Flask that focuses primarily on web-related security challenges. The system features various challenges where users must discover hidden keys embedded throughout the files and components of web applications.
+    
+    This hands-on approach helps cybersecurity enthusiasts develop practical skills in identifying and exploiting web vulnerabilities, understanding file structure security issues, and implementing secure coding practices.`,
     image: ctf_zone_img,
     url: 'https://ctf-django.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/ctf-django',
     categories: ['cyber', 'educational', 'security'],
-    technologies: ['Django', 'Python', 'Docker', 'Web Security'],
+    technologies: ['Flask', 'Python', 'Web Security'],
     dateCreated: '2021-09-18',
     relatedKeywords: [
-      'CTF platform',
-      'cybersecurity training',
-      'ethical hacking challenges',
-      'security learning platform',
-      'hacking practice environment',
-      'cybersecurity education',
-      'penetration testing practice'
+      'CTF challenges',
+      'web security training',
+      'hidden flag discovery',
+      'cybersecurity practice',
+      'web vulnerability exercises',
+      'security learning platform'
     ]
   },
   {
     name: 'Machine Learning Model Trainer',
     slug: 'ml-model-trainer',
-    description: 'An application for creating and visualizing decision trees, enabling users to upload datasets and train models.',
+    description: 'An application that allows users to upload numerical datasets to train and visualize linear regression and decision tree ML models.',
+    extendedDescription: `The Machine Learning Model Trainer is a tool designed to make machine learning more accessible by allowing users to upload datasets with numerical columns and apply either linear regression or decision tree models. Users can train these models directly in the application and instantly see their performance scores.
+    
+    Built using Node.js, Python, and React, this application bridges the gap between data analysis and machine learning implementation, providing an intuitive interface for users to understand model performance without needing extensive programming knowledge.`,
     image: public_trainer_img,
     url: 'https://decision-tree-app.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/decision-tree-app',
-    categories: ['data', 'machine learning', 'visualization'],
-    technologies: ['Python', 'scikit-learn', 'D3.js', 'Node.js', 'Express'],
+    categories: ['data', 'machine learning', 'tool'],
+    technologies: ['Node.js', 'Python', 'React', 'Machine Learning'],
     dateCreated: '2022-01-30',
     relatedKeywords: [
+      'ML model training',
       'decision tree visualization',
-      'machine learning training platform',
-      'model visualization tool',
-      'interactive ML model builder',
-      'data science education tool',
-      'predictive modeling platform',
-      'ML algorithm visualization'
-    ]
-  },
-  {
-    name: 'Lift Finder',
-    slug: 'lift-finder',
-    description: 'A tool for finding and comparing lift equipment for various industrial and construction purposes.',
-    image: liftfinder_img,
-    url: 'https://lift-finder.netlify.app/',
-    gitHubUrl: 'https://github.com/sideffect263/lifter-web',
-    categories: ['web', 'tool', 'comparison'],
-    technologies: ['React', 'Firebase', 'Material-UI'],
-    dateCreated: '2021-08-05',
-    relatedKeywords: [
-      'construction equipment comparison',
-      'lift equipment finder',
-      'industrial lift selector',
-      'equipment rental comparison',
-      'construction tool finder',
-      'aerial work platform guide',
-      'equipment specification comparison'
+      'linear regression tool',
+      'data analysis platform',
+      'model performance scoring',
+      'accessible machine learning'
     ]
   },
   {
     name: 'TheBoxTivon Fitness Hub',
     slug: 'theboxtivon',
-    description: 'A website for TheBoxTivon fitness hub, providing information about classes, trainers, and booking options.',
+    description: 'A landing page for a fitness center featuring an integrated booking system for class scheduling.',
+    extendedDescription: `TheBoxTivon Fitness Hub is a focused landing page for a fitness center that integrates an iframe connected to the center's appointment scheduling system. The site provides a clean interface for users to view and book fitness classes.
+    
+    The primary feature is the seamless connection to the training center's fitness appointments, allowing users to see availability and make bookings without leaving the site.`,
     image: theboxtivon_img,
     url: 'https://theboxtivon.netlify.app/',
     gitHubUrl: 'https://github.com/sideffect263/theboxtivon-v2',
     categories: ['web', 'business', 'booking'],
-    technologies: ['React', 'Netlify', 'Booking API', 'CSS'],
+    technologies: ['React', 'Netlify', 'Iframe Integration'],
     dateCreated: '2022-04-12',
     relatedKeywords: [
       'fitness center website',
-      'gym class booking system',
-      'fitness trainer profiles',
-      'exercise class scheduling',
-      'workout program registration',
-      'fitness membership management',
+      'class booking integration',
+      'gym landing page',
+      'appointment scheduling',
+      'fitness class calendar',
       'gym website template'
     ]
   },
   {
     name: 'NetViz Dashboard',
     slug: 'netviz-dashboard',
-    description: 'A Node.js server that analyzes domains and IPs, returning valuable information about network topology and security assessments.',
-    extendedDescription: `NetViz Dashboard is a sophisticated network visualization and security assessment tool that provides comprehensive insights into network infrastructure, topology, and potential vulnerabilities. The system serves as the backend processing engine for the NetScan360 frontend interface, delivering powerful analysis capabilities through a scalable Node.js architecture.
+    description: 'A backend server providing APIs for comprehensive domain and IP scanning, including security information and DNS analysis.',
+    extendedDescription: `NetViz Dashboard serves as the backend server for the NetScan360 front-end application. It provides robust APIs that enable users to search and scan domains or IP addresses, retrieving comprehensive information including:
 
-    The dashboard collects, processes, and analyzes vast amounts of network data to generate meaningful visualizations and actionable security insights. It can map complex network topologies, identify unusual traffic patterns, detect potential security breaches, and provide detailed information about connected devices and their relationships.
-
-    Key features include domain and IP reputation checking, network path visualization, DNS analysis, port scanning capabilities, and vulnerability assessment. The system integrates with multiple security intelligence feeds to provide real-time threat information and contextual alerts about potentially malicious activities.
-
-    NetViz Dashboard is designed for network administrators, security professionals, and IT teams who need to maintain comprehensive visibility into their network infrastructure while proactively identifying potential security issues before they can be exploited.`,
+    - IP address data and available Shodan information
+    - DNS records (MX, NS, TXT records)
+    - WHOIS information
+    - CDN details
+    - Security vulnerability information
+    
+    The system aggregates data from multiple sources to deliver a complete picture of a domain or IP's network footprint and security posture.`,
     image: netviz_img2,
     url: 'https://netviz-dashboard.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/netViz_backend',
-    categories: ['cyber', 'network', 'security', 'tool'],
-    technologies: ['Node.js', 'Express', 'Network Analysis', 'Security API', 'MongoDB', 'Socket.io'],
+    categories: ['cyber', 'network', 'security', 'api'],
+    technologies: ['Node.js', 'Express', 'Network Analysis', 'Security API'],
     dateCreated: '2022-02-20',
     relatedKeywords: [
-      'network topology visualization',
-      'security assessment dashboard',
-      'network mapping tool',
-      'cybersecurity visualization',
-      'network monitoring dashboard',
-      'threat detection system',
-      'IT infrastructure analysis',
-      'network security scanner'
-    ],
-    
+      'domain information API',
+      'IP scanning service',
+      'DNS record analysis',
+      'network security assessment',
+      'WHOIS information retrieval',
+      'security data aggregation'
+    ]
   },
   {
     name: 'NetScan360',
     slug: 'netscan360',
-    description: 'The front-end interface for NetViz, providing comprehensive network topology analysis and visualization.',
-    extendedDescription: `NetScan360 is an advanced network visualization tool that serves as the front-end interface for the NetViz Dashboard system. This powerful web application transforms complex network data into intuitive, interactive visualizations that enable IT professionals to understand network topology, identify security vulnerabilities, and troubleshoot connectivity issues with unprecedented clarity.
-
-    The application features a sophisticated graph-based visualization engine that renders network nodes, connections, and traffic patterns in real-time. Users can interact with the visualization through an intuitive interface that supports zooming, filtering, and focusing on specific network segments or devices. The system automatically identifies important network elements and potential security concerns, highlighting them visually for immediate attention.
-
-    NetScan360 integrates seamlessly with the NetViz Dashboard backend to provide comprehensive network analysis capabilities. Users can drill down into detailed information about any network device, connection, or traffic pattern with a simple click. The application supports both real-time monitoring and historical analysis, allowing for trend identification and anomaly detection across different timeframes.
-
-    With its responsive design, NetScan360 works effectively on devices ranging from large SOC displays to tablets used by field technicians. The application emphasizes usability without sacrificing analytical depth, making complex network visualization accessible to IT professionals at all skill levels.`,
+    description: 'A polished front-end interface for scanning domains and IPs, visualizing security and network information from the NetViz Dashboard.',
+    extendedDescription: `NetScan360 is the front-end component for the NetViz Dashboard system, providing an intuitive and visually appealing interface for users to scan domains or IP addresses and receive comprehensive information about them.
+    
+    The application allows users to easily explore network data and security information through an elegant web interface, making complex network intelligence accessible and understandable. It communicates with the NetViz Dashboard backend to retrieve and display detailed domain and IP information.`,
     image: netviz_img1,
     url: 'https://netscan.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/netViz',
     categories: ['cyber', 'network', 'visualization', 'security'],
-    technologies: ['React',  'Network Visualization', ],
+    technologies: ['React', 'Network Visualization'],
     dateCreated: '2022-02-28',
     relatedKeywords: [
-      'network topology mapping',
-      'interactive network visualization',
-      'cybersecurity visualization tool',
-      'IT infrastructure diagram',
-      'network monitoring interface',
-      'security visualization dashboard',
-      'network traffic analysis',
-      'D3.js network graph'
+      'domain scanning interface',
+      'network information visualization',
+      'IP intelligence dashboard',
+      'security data presentation',
+      'network analysis frontend',
+      'domain investigation tool'
     ]
   },
   {
     name: 'NetSecDev',
     slug: 'netsecdev',
-    description: 'A browser-based security scanning tool that leverages the Chrome DevTools Protocol and other browser APIs to analyze websites for common security vulnerabilities.',
+    description: 'A Chrome extension for detecting known CVEs and cross-referencing them with appropriate severity grades and fixes.',
+    extendedDescription: `NetSecDev was developed as a learning project for creating Google Chrome extensions. The tool specializes in detecting known Common Vulnerabilities and Exposures (CVEs) and cross-referencing them with their appropriate severity grades and available fixes.
+    
+    This browser-based security tool leverages the Chrome DevTools Protocol to provide insights into potential security issues, helping developers and security professionals identify and address vulnerabilities in web applications.`,
     image: netviz_img3,
     gitHubUrl: 'https://github.com/sideffect263/netsecdev',
     categories: ['cyber', 'security', 'browser', 'tool'],
-    technologies: ['JavaScript', 'Chrome DevTools Protocol', 'Security Analysis'],
+    technologies: ['JavaScript', 'Chrome Extensions', 'CVE Database'],
     dateCreated: '2022-05-10',
     relatedKeywords: [
+      'vulnerability detection extension',
+      'CVE identification tool',
+      'security fix reference',
       'browser security scanner',
-      'website vulnerability assessment',
-      'Chrome DevTools security',
-      'web application security testing',
-      'client-side security analysis',
-      'frontend security scanner',
-      'XSS detection tool'
+      'vulnerability grading system',
+      'Chrome security extension'
     ]
   },
   {
     name: 'NewsWorld',
     slug: 'newsworld',
-    description: 'A Node.js backend API and full web system for a global news and data aggregation platform, collecting, processing, and serving news articles from various sources worldwide.',
+    description: 'A news aggregation platform that collects articles from RSS feeds and performs sentiment analysis, geolocation, and keyword extraction.',
+    extendedDescription: `NewsWorld is a comprehensive news aggregation platform that currently collects articles from RSS feeds, with plans to integrate additional APIs and web scrapers in the future. The system performs advanced data analysis on each article, including:
+
+    - Sentiment grading
+    - Geolocation
+    - Keyword extraction (for locations, people, and general themes)
+    - Story creation by grouping related articles
+    
+    The platform has already collected and analyzed over 3,500 articles, creating a rich database of categorized news content. This organized approach allows for powerful search capabilities and trend identification across news sources.`,
     image: newsworld_img,
     url: 'https://newsworld.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/newsWorld',
-    categories: ['web', 'data', 'news', 'api'],
-    technologies: ['Node.js', 'MongoDB', 'Express', 'News API'],
+    categories: ['web', 'data', 'news', 'analysis'],
+    technologies: ['Node.js', 'RSS Feed Integration', 'Natural Language Processing', 'Data Analysis'],
     dateCreated: '2021-10-15',
     relatedKeywords: [
-      'news aggregation platform',
-      'global news collection system',
-      'content curation API',
-      'news data processing',
-      'media aggregation service',
-      'international news feed',
-      'real-time news platform'
+      'news aggregation',
+      'sentiment analysis',
+      'article categorization',
+      'news data extraction',
+      'content relationship mapping',
+      'RSS feed processing'
     ]
   },
   {
     name: 'Random Cat Facts',
     slug: 'cat-facts',
-    description: 'A React web application that displays random facts about cats, providing a fun and educational experience for cat enthusiasts.',
+    isEmbed: 'https://cat-facts-p44a.onrender.com/embed',
+    description: 'A simple React app created in 30 minutes to demonstrate rapid development with AI assistance, displaying random facts from a cat facts API.',
+    extendedDescription: `Random Cat Facts is a minimalist web application built in just 30 minutes with the help of Cursor AI. The project was created as a demonstration of how quickly a functional web app can be developed with AI assistance and creative thinking.
+    
+    The development process was split into three 10-minute phases:
+    1. Conceptualization - deciding what to build and how to present it
+    2. Data source research - finding and selecting the cat facts API
+    3. Implementation - using Cursor AI to rapidly develop the React application
+    
+    The result is a simple but fully functional app that fetches and displays random facts about cats from an external API.`,
     image: catfacts_img,
     url: 'https://cat-facts-p44a.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/cat-facts',
-    categories: ['web', 'educational', 'fun'],
-    technologies: ['React', 'API Integration', 'CSS'],
+    categories: ['web', 'AI-assisted', 'demonstration'],
+    technologies: ['React', 'API Integration', 'Cursor AI'],
     dateCreated: '2021-07-05',
     relatedKeywords: [
-      'cat information application',
-      'feline facts generator',
-      'educational pet app',
-      'random animal facts',
-      'cat trivia platform',
-      'pet education resource',
-      'feline information database'
+      'rapid development demo',
+      'AI-assisted coding',
+      'API consumption example',
+      'minimal viable product',
+      'quick build demonstration',
+      'Cursor AI showcase'
     ]
   },
   {
     name: 'Live Threat Map in 3D',
     slug: 'live-threat-map',
-    description: 'A 3D map visualizing live cyber attacks around the globe, offering insights into global cybersecurity threats.',
-    extendedDescription: `The Live Threat Map in 3D is an immersive cybersecurity visualization platform that transforms complex global attack data into an intuitive, interactive 3D globe representation. This cutting-edge tool provides real-time visualization of cyber attacks as they occur worldwide, offering security professionals and organizations unprecedented insight into the global threat landscape.
-
-    The system aggregates attack data from multiple sources including honeypots, security sensors, threat intelligence feeds, and partner networks to create a comprehensive view of current cyber attack patterns. Each attack is rendered as an animated trajectory on the 3D globe, with color coding representing attack types and intensity indicating volume.
-
-    Users can interact with the globe to explore attack origins, destinations, methods, and trends. The platform includes powerful filtering capabilities to focus on specific attack types, geographic regions, or time periods. An integrated timeline feature allows for historical analysis and pattern recognition across different timeframes.
-
-    Beyond its visual appeal, the Live Threat Map offers practical security applications including early warning of emerging attack campaigns, identification of compromised infrastructure, and strategic intelligence on attacker methodologies and targeting patterns.`,
+    description: 'A Three.js visualization of real-time cyber attacks worldwide, using data proxied from the Radware threat map.',
+    extendedDescription: `The Live Threat Map in 3D is a sophisticated visualization tool that displays real-time cyber attacks occurring around the world. The application uses a proxy server to capture data from the actual Radware threat map and feeds it to a Three.js-powered front-end display.
+    
+    Users can observe genuine cyber attacks as they happen globally, presented in an immersive 3D environment that makes complex attack patterns more intuitive and understandable. The visualization helps security professionals and interested observers gain a better understanding of the volume, origin, and targets of current cyber threats.`,
     image: hackermap_img,
     url: 'https://hacker-attack-map-radware.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/hacker-attack-map-radware',
     categories: ['cyber', 'visualization', 'security', 'data'],
-    technologies: ['Three.js', 'WebGL', 'Real-time Data', 'Security Feed', 'WebSockets', 'D3.js'],
+    technologies: ['Three.js', 'WebGL', 'Proxy Server', 'Real-time Data'],
     dateCreated: '2022-03-15',
     relatedKeywords: [
-      'cybersecurity attack visualization',
-      '3D threat intelligence map',
-      'global cyber attack monitoring',
-      'real-time security visualization',
-      'interactive threat map',
-      'cyber attack tracking system',
-      'security operations center display',
-      'WebGL security visualization'
+      'real-time attack visualization',
+      '3D cyber threat map',
+      'global attack monitoring',
+      'security data visualization',
+      'Radware data integration',
+      'three-dimensional threat display'
     ]
   },
   {
     name: 'Quantum Computing Interface',
     slug: 'quantum-computing',
-    description: 'An interface exploring quantum computing and cryptography, providing educational resources and interactive tools.',
+    description: 'An educational platform demonstrating quantum computing capabilities, comparing classical versus quantum approaches to breaking the Diffie-Hellman key exchange.',
+    extendedDescription: `The Quantum Computing Interface is an educational platform that demonstrates the power of quantum computing by comparing classical and quantum approaches to cryptographic challenges, particularly the Diffie-Hellman key exchange. The interface showcases how a quantum computer can potentially break this widely-used encryption protocol, highlighting the significant security implications of quantum computing advancements.
+    
+    Beyond this core demonstration, the platform includes additional pages with metrics and data about quantum computing capabilities, along with an interactive playground where users can create and experiment with their own quantum circuits. These circuits can be run on IBM's quantum computers, giving users hands-on experience with real quantum systems.`,
     image: quantum_img,
     url: 'https://quantum-computing-interface.onrender.com/',
     gitHubUrl: 'https://github.com/sideffect263/Quantum-Computing-Interface',
-    categories: ['web', 'educational', 'quantum', 'crypto', 'diffie-hellman key exchange'],
-    technologies: ['React', 'Quantum Libraries', 'Interactive Visualization'],
+    categories: ['web', 'educational', 'quantum', 'cryptography'],
+    technologies: ['React', 'IBM Quantum Integration', 'Quantum Circuit Simulation'],
     dateCreated: '2022-01-10',
     relatedKeywords: [
+      'quantum cryptography',
+      'Diffie-Hellman key exchange',
+      'quantum circuit playground',
+      'IBM quantum integration',
       'quantum computing education',
-      'quantum cryptography platform',
-      'quantum algorithm visualization',
-      'quantum programming interface',
-      'quantum mechanics learning tool',
-      'quantum computing simulation',
-      'interactive quantum education'
+      'cryptographic vulnerability demonstration'
     ]
   },
   {
     name: 'AutoData',
     slug: 'autodata',
-    description: 'An automatic data analysis and visualization platform, enabling users to upload datasets and generate insightful visualizations.',
+    description: 'An intelligent data analysis platform that automatically cleans data, identifies relationships between columns, and suggests appropriate visualizations.',
+    extendedDescription: `AutoData is an advanced data visualization platform that streamlines the analysis process through automation. Users can simply drag and drop their datasets to begin analysis. The system then:
+
+    1. Automatically analyzes and cleans the data
+    2. Identifies straightforward relationships (numerical-to-numerical or category-to-category) and applies relevant charts
+    3. Performs smart searching using advanced mathematical functions like KNN and other eleventh functions to detect connections between any columns
+    4. Provides visualization suggestions based on the detected relationships
+    
+    Users can explore these relationships through five different 2D chart types or three different 3D chart options, making complex data patterns immediately visible and accessible without requiring advanced data science expertise.`,
     image: autodata_img,
     url: 'https://autodata.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/autodata',
-    categories: ['data', 'visualization', 'analysis', 'tool'],
-    technologies: ['Python', 'D3.js', 'node.js', 'Machine Learning', ],
+    categories: ['data', 'visualization', 'analysis', 'automation'],
+    technologies: ['Python', 'D3.js', 'Node.js', 'Machine Learning'],
     dateCreated: '2021-12-05',
     relatedKeywords: [
       'automated data visualization',
-      'data analysis platform',
-      'business intelligence tool',
-      'data visualization generator',
-      'data insights application',
-      'chart generation system',
-      'visual data analysis'
+      'intelligent chart suggestion',
+      'data relationship detection',
+      'self-analyzing datasets',
+      'KNN data analysis',
+      'automated insight generation'
     ]
   },
   {
     name: 'AI Story Teller',
     slug: 'ai-story-teller',
-    description: 'A browser-based AI storytelling app that generates dynamic, procedural narratives using a small GPT model and Transformers.js. Users can co-create data stories in real time.',
+    description: 'An experimental browser-based application running a local GPT-2 model to generate interactive fantasy stories with user choice branches.',
+    extendedDescription: `AI Story Teller is an experimental project exploring the capabilities of running GPT-2 models directly in the browser. The application generates random fantasy stories and prompts users to choose between two options as the narrative progresses, creating a branching, interactive storytelling experience.
+    
+    As a technical experiment, the application demonstrates what's possible with local language models without requiring server-side processing. However, due to the constraints of running complex models in the browser, response times can range from 10 to 40 seconds for each generation.`,
     image: ai_story,
     url: 'https://ai-story-teller.ofektechnology.com/',
     gitHubUrl: 'https://github.com/sideffect263/ai-story-telling',
     categories: ['web', 'ai', 'nlp', 'interactive'],
-    technologies: ['Transformers.js', 'GPT Model', 'React', 'WebAssembly'],
+    technologies: ['GPT-2', 'Browser-based AI', 'Interactive Fiction'],
     dateCreated: '2022-07-25',
     relatedKeywords: [
-      'AI narrative generation',
-      'procedural storytelling app',
-      'browser-based GPT model',
-      'interactive story creation',
-      'transformers.js application',
-      'collaborative AI writing',
-      'natural language generation'
+      'browser-based GPT-2',
+      'interactive storytelling',
+      'choice-based narratives',
+      'local language model',
+      'fantasy story generator',
+      'client-side AI processing'
     ]
   },
 ];
 
 export default projects;
+
